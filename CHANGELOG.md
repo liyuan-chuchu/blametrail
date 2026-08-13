@@ -9,6 +9,11 @@ All notable changes to BlameTrail are documented here.
 - Accept global flags such as `--version` before a command.
 - Avoid assigning unrelated risk flags from other hunks in a large commit.
 
+### Documentation
+
+- Redesign the repository front page around a runnable example and evidence model.
+- Add a Chinese README and a reusable project banner.
+
 ## 0.1.0 - 2026-08-14
 
 ### Added
