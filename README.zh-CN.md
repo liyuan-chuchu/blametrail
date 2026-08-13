@@ -8,12 +8,15 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-6366f1.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-22c55e.svg)](https://nodejs.org)
 [![Runtime dependencies](https://img.shields.io/badge/runtime_dependencies-0-06b6d4.svg)](package.json)
+[![GitHub stars](https://img.shields.io/github/stars/liyuan-chuchu/blametrail?style=flat&color=f59e0b)](https://github.com/liyuan-chuchu/blametrail/stargazers)
 
 [English](README.md) · **简体中文** · [路线图](docs/ROADMAP.md) · [参与贡献](CONTRIBUTING.md)
 
 </div>
 
 BlameTrail 是一个本地优先的代码考古 CLI 与 GitHub Action。输入一行代码或一个 Pull Request，它会沿着 **提交 → PR → issue → review → revert** 追溯，并链接到原始证据。
+
+> **用大白话说：** 当你看到一段奇怪的旧代码时，BlameTrail 会帮你调查“这是谁加的、当时想解决什么问题、修改前应该先看哪些讨论”。它把相关的 Git 提交和 GitHub 讨论整理成一份报告。它不会擅自修改代码，也不会假装知道唯一正确的原因，而是把原始证据交给开发者或编码 Agent 判断，避免因为不了解历史而重复踩坑。
 
 ```console
 $ blametrail explain src/auth/session.ts:42
@@ -92,7 +95,7 @@ jobs:
   blametrail:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - uses: liyuan-chuchu/blametrail@v0.1.0

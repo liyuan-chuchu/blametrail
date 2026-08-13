@@ -16,6 +16,8 @@
 
 BlameTrail is a local-first CLI and GitHub Action for code archaeology. Point it at a line of code or a pull request and it follows the trail through **commits → pull requests → issues → reviews → reverts**, with links back to the original evidence.
 
+> **In plain English:** when you find a strange line of code, BlameTrail helps answer “who added this, what problem were they solving, and what should I read before changing it?” It gathers the relevant Git commits and GitHub discussions into one report. It does not modify the code or pretend to know the one true reason—it shows the original evidence so a developer or coding agent can make a better decision.
+
 ```console
 $ blametrail explain src/auth/session.ts:42
 
