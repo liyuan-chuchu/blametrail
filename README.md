@@ -103,7 +103,7 @@ jobs:
   blametrail:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - uses: liyuan-chuchu/blametrail@v0.1.0
