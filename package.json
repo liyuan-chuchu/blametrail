@@ -8,6 +8,7 @@
   },
   "files": [
     "dist",
+    "!dist/*.test.*",
     "action.yml",
     "README.md",
     "LICENSE"
