@@ -4,6 +4,11 @@ All notable changes to BlameTrail are documented here.
 
 ## Unreleased
 
+### Fixed
+
+- Accept global flags such as `--version` before a command.
+- Avoid assigning unrelated risk flags from other hunks in a large commit.
+
 ## 0.1.0 - 2026-08-14
 
 ### Added

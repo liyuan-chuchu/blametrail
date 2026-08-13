@@ -16,7 +16,6 @@ export function parseCli(argv) {
         version: false,
     };
     const args = [...argv];
-    parsed.command = args.shift();
     for (let index = 0; index < args.length; index += 1) {
         const value = args[index];
         if (!value)
@@ -41,6 +40,8 @@ export function parseCli(argv) {
         }
         else if (value.startsWith("-"))
             throw new Error(`Unknown option: ${value}`);
+        else if (!parsed.command)
+            parsed.command = value;
         else
             parsed.positional.push(value);
     }

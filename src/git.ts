@@ -137,7 +137,7 @@ export async function getCommitEvidence(
     ...parsed,
     file,
     diffExcerpt: truncate(diff, 12_000),
-    flags: detectRiskFlags(`${parsed.message}\n${diff}`),
+    flags: detectRiskFlags(parsed.message),
   };
   if (lines) {
     result.startLine = lines.startLine;

@@ -31,7 +31,6 @@ export function parseCli(argv: string[]): ParsedCli {
     version: false,
   };
   const args = [...argv];
-  parsed.command = args.shift();
   for (let index = 0; index < args.length; index += 1) {
     const value = args[index];
     if (!value) continue;
@@ -46,6 +45,7 @@ export function parseCli(argv: string[]): ParsedCli {
     } else if (value === "--max-files") {
       parsed.maxFiles = parseBoundedInteger(requireValue(args, ++index, "--max-files"), 1, 100);
     } else if (value.startsWith("-")) throw new Error(`Unknown option: ${value}`);
+    else if (!parsed.command) parsed.command = value;
     else parsed.positional.push(value);
   }
   return parsed;

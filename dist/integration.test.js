@@ -4,6 +4,7 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 import { analyzeExplain } from "./analyze.js";
 const execFileAsync = promisify(execFile);
@@ -19,12 +20,17 @@ test("offline explain returns local commit evidence", async () => {
         const report = await analyzeExplain({ file: "auth.ts", startLine: 1, endLine: 1 }, { cwd: root, offline: true, maxCommits: 5, maxFiles: 20 });
         assert.equal(report.commits.length, 1);
         assert.match(report.commits[0]?.subject ?? "", /race condition/);
-        assert.deepEqual(report.commits[0]?.flags, ["security", "compatibility", "bug-fix"]);
+        assert.deepEqual(report.commits[0]?.flags, ["compatibility", "bug-fix"]);
         assert.match(report.warnings[0] ?? "", /Offline mode/);
     }
     finally {
         await rm(root, { recursive: true, force: true });
     }
+});
+test("CLI accepts a global version flag without a command", async () => {
+    const cli = fileURLToPath(new URL("./cli.js", import.meta.url));
+    const { stdout } = await execFileAsync(process.execPath, [cli, "--version"], { windowsHide: true });
+    assert.equal(stdout.trim(), "0.1.0");
 });
 async function git(cwd, args) {
     await execFileAsync("git", args, { cwd, windowsHide: true });
