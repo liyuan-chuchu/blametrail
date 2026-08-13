@@ -1,0 +1,35 @@
+name: Feature proposal
+description: Propose a focused maintainer workflow improvement.
+title: "proposal: "
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Maintainer problem
+      description: What decision or review task is difficult today?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Current evidence sources
+      description: Which Git, PR, issue, review, or hosting data contains the answer?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Show an example command and expected evidence output if possible.
+    validations:
+      required: true
+  - type: checkboxes
+    id: invariants
+    attributes:
+      label: Project invariants
+      options:
+        - label: The proposal can remain read-only and local-first.
+          required: true
+        - label: Remote or heuristic claims can link to verifiable evidence.
+          required: true

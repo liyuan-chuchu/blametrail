@@ -1,0 +1,27 @@
+name: BlameTrail historical review
+description: Surface commits, pull requests, issues, reviews, and reverts relevant to a pull request.
+author: liyuan-chuchu
+branding:
+  icon: clock
+  color: purple
+inputs:
+  github_token:
+    description: GitHub token used for read-only repository and pull request evidence.
+    required: false
+  pr_number:
+    description: Pull request number. Defaults to the current pull_request event.
+    required: false
+  max_commits:
+    description: Maximum historical commits retained per changed file.
+    required: false
+    default: "5"
+  max_files:
+    description: Maximum changed files analyzed.
+    required: false
+    default: "20"
+outputs:
+  report:
+    description: Markdown historical review report.
+runs:
+  using: node24
+  main: dist/action.js

@@ -1,0 +1,48 @@
+name: Bug report
+description: Report incorrect evidence, a crash, or a compatibility problem.
+title: "bug: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping make historical evidence more reliable. Remove private repository data and credentials before submitting.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Include the command, expected result, and actual result.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: BlameTrail version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [Windows, macOS, Linux, Other]
+    validations:
+      required: true
+  - type: input
+    id: git
+    attributes:
+      label: Git and Node versions
+      placeholder: git 2.51, Node 24.1
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Prefer a public repository or a small repository you created for the report.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed tokens, private URLs, and private source or discussion text.
+          required: true

@@ -1,0 +1,46 @@
+{
+  "name": "blametrail",
+  "version": "0.1.0",
+  "description": "Evidence-first code archaeology for Git history, pull requests, issues, reviews, and reverts.",
+  "type": "module",
+  "bin": {
+    "blametrail": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "action.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test dist/*.test.js",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "git",
+    "github",
+    "code-review",
+    "code-archaeology",
+    "developer-tools",
+    "ai-agents"
+  ],
+  "author": "liyuan-chuchu",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liyuan-chuchu/blametrail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liyuan-chuchu/blametrail/issues"
+  },
+  "homepage": "https://github.com/liyuan-chuchu/blametrail#readme",
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

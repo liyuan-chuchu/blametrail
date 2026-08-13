@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/liyuan-chuchu/blametrail/security/advisories/new
+    about: Report credential, command execution, path traversal, or private-data vulnerabilities privately.
